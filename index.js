@@ -25,7 +25,7 @@ import puppeteer from 'puppeteer'
     //AGUARDANDO E PULANDO POPUP
     await page.waitForNavigation();
     await page.click('.yWX7d');
-
+//Função que Escreve no Campo
     const loop = async () => {
         await page.waitForSelector('textarea');
         await page.type('textarea', 'MEU DEUS MEU SENHOR, ME AJUDA POR FAVOR', { delay: 200 });

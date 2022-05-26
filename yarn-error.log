@@ -5,7 +5,7 @@ PATH:
   /usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/var/lib/snapd/snap/bin:/home/isaqueamorim/bin
 
 Yarn version: 
-  1.22.15
+  1.22.15 
 
 Node version: 
   16.14.0
