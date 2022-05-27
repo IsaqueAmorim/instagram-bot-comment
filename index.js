@@ -1,4 +1,4 @@
-import chalk from "chalk";
+
 import puppeteer from 'puppeteer'
 
 
@@ -8,6 +8,7 @@ import puppeteer from 'puppeteer'
 
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
+    await page.setViewport({width:768,height:768})
 
     //URL ALVO
     await page.goto('https://www.instagram.com/p/Cd5tiVMj_AM/');
