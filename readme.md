@@ -16,11 +16,15 @@ Então pesquisei e encontrei o `Puppeteer`, e vi que poderia automatizar a naveg
 
 Para obter o Puppeteer é simples, basta adiciona-lo no seu projeto usando:
 
-``` npm install puppeteer```
+```
+ npm install puppeteer
+```
 
 ou
 
-``` yarn add Puppeteer ```
+```
+ yarn add Puppeteer
+  ```
 
 OBS: Para mais informações basta acessar a documentação oficila do puppeteer.
 
