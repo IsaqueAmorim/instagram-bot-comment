@@ -1,73 +1,58 @@
+import  puppeteer  from "puppeteer";
 
-import puppeteer from 'puppeteer'
+//CREDENTIALS LOGIN
+const user = 'example@example.com';
+const password = '12345678'; // BEST PASS EVER :)
+const message = 'MEU DEUS MEU SENHOR, ME AJUDA POR FAVOR';
+const postLink = 'https://www.instagram.com/p/examplepost/';
+const amountComents = 50;
+let countComment = 0;
+
+const browser = await puppeteer.launch({headless:false});
+const page = await browser.newPage();
 
 
+(async ()=>{
 
-//PUPPETEER START
-(async () => {
 
-    const browser = await puppeteer.launch({ headless: false });
-    const page = await browser.newPage();
-    await page.setViewport({width:768,height:768})
-
-    //URL ALVO
-    await page.goto('https://www.instagram.com/p/Cd5tiVMj_AM/');
-    // await page.waitForSelector('.L3NKy');
-    // await page.click('.L3NKy')
+    // OPEN BROWSER AND OPEN PAGE
+    await page.goto('https://www.instagram.com/accounts/login/');
     
-    // //AGUARDANDO A PÁGINA CARREGAR
-    // await page.waitForNavigation()
+    //LOGIN
     await page.waitForSelector('input[name="username"]');
-
-    //PREENCHENDO CAMPO DE LOGIN
-    await page.type('input[name="username"]', 'isaqueamorim25@gmail.com', { delay: 50 });
-    await page.type('input[name="password"]', '13082003', { delay: 70 });
+    await page.type('input[name="username"]', user, { delay: 150 });
+    await page.type('input[name="password"]', password, { delay: 170 });
     await page.click('button[type="submit"]');
-    //AGUARDANDO E PULANDO POPUP
     await page.waitForNavigation();
-    await page.click('.yWX7d');
-//Função que Escreve no Campo
-    const loop = async () => {
-        await page.waitForSelector('textarea');
-        await page.type('textarea', 'MEU DEUS MEU SENHOR, ME AJUDA POR FAVOR', { delay: 200 });
+
+    //GO TO POST
+    await page.goto(postLink);
+
+    while(countComment <= amountComents){
+
+        //Random Number Interval
+        let intervals = [4000,5000,6000,7000];
+        let randomInterval = Math.random()*intervals.length;
+
+        //Comment
+        await page.waitForSelector('textarea')
+        await page.type('textarea',message,{delay:200})
         await page.click('button[type="submit"]');
+        
+        countComment++
+        //Log number of comments
+        console.log(`COMENTÁRIO ${countComment}`);
 
-        console.log('COMENTÁRIO ')
-
+        //Interval
+        await page.waitForTimeout(intervals[randomInterval])  
     }
-    await loop();
-    await page.waitForTimeout(5000)
-    await loop();
-    await page.waitForTimeout(7000)
-    await loop();
-    await page.waitForTimeout(5000)
-    await loop();
-    await page.waitForTimeout(4000)
-    await loop();
-    await page.waitForTimeout(4000)
-    await loop();
-    await page.waitForTimeout(5000)
-    await loop();
-    await page.waitForTimeout(5000)
-    await loop();
-    await page.waitForTimeout(6000)
-    await loop();
-    await page.waitForTimeout(7000)
-    await loop();
-    await page.waitForTimeout(5000)
-    await loop();
-    await page.waitForTimeout(5000)
-    await loop();
-    await page.waitForTimeout(4000)
-    await loop();
-    await page.waitForTimeout(7000)
-    await loop();
-    await page.waitForTimeout(3000)
-    await loop();
-    
-    await page.waitForTimeout(5000)
-    await browser.close()
+   
 
 })();
 
 
+
+    
+
+
+    
