@@ -12,7 +12,7 @@ Vi que a forma como estava comentando era extremamente ineficiente, pois um Huma
 
 Então pesquisei e encontrei o `Puppeteer`, e vi que poderia automatizar a navegação de uma forma mais humana.
 
-# Puppeteer
+# ✖️ Puppeteer
 
 Para obter o Puppeteer é simples, basta adiciona-lo no seu projeto usando:
 
@@ -31,5 +31,25 @@ OBS: Para mais informações basta acessar a documentação oficila do puppeteer
 ![https://user-images.githubusercontent.com/10379601/29446482-04f7036a-841f-11e7-9872-91d1fc2ea683.png](https://user-images.githubusercontent.com/10379601/29446482-04f7036a-841f-11e7-9872-91d1fc2ea683.png)
 
 https://github.com/puppeteer/puppeteer 
+
+# **ℹ️ Como Utilizar**
+
+Primeiro, basta atualizar as credenciais de login:
+~~~javascript
+const user = 'example@example.com' // Seu usuário no instagram
+const password = '12345678' // Sua senha de login no instagram
+~~~
+O proximo passo é adicionar a mensagem que será comentada, o link do post para comentar e a quantidade de comentários que deja fazer.
+~~~javascript
+const message = 'Example message XD' // Seu comentário
+const postLink = 'https://www.instagram.com/examplepost/' // O link do post para comentar
+const amountComents = 50 // A quantidade de comentário que deja enviar.
+~~~
+Depois é fácil, acesse o terminal na pasta em que você fez o clone do projeto e digite:
+
+```
+node index.js
+``` 
+E pronto o Script fará tudo daqui em diante 😉.
 
 ------
