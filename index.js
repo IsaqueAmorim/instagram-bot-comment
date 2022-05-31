@@ -8,12 +8,12 @@ const postLink = 'https://www.instagram.com/p/examplepost/';
 const amountComents = 50;
 let countComment = 0;
 
-const browser = await puppeteer.launch({headless:false});
-const page = await browser.newPage();
 
 
 (async ()=>{
-
+    
+    const browser = await puppeteer.launch({headless:false});
+    const page = await browser.newPage();
 
     // OPEN BROWSER AND OPEN PAGE
     await page.goto('https://www.instagram.com/accounts/login/');
